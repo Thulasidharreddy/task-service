@@ -26,7 +26,7 @@ public class TaskServiceImpl implements TaskService {
             if (userDetails != null) {
                 return taskRepository.createTaskForUser(taskDetails);
             } else {
-                throw new Exception(String.format("User not present. UserId: %s", userId));
+                return false;
             }
         } catch (Exception ex) {
             System.out.printf("Exception occurred while creating a task for given userId. UserId: %s", userId);
