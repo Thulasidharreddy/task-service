@@ -21,7 +21,10 @@ public class TaskController {
     ResponseEntity<Status> createTaskForUser(@PathVariable("user_id") Long userId, @RequestBody TaskDetails taskDetails) {
         try {
             Boolean isSuccess = taskService.createTask(userId, taskDetails);
-            return new ResponseEntity<>(new Status(isSuccess), HttpStatus.OK);
+            if(isSuccess) {
+                return new ResponseEntity<>(new Status(isSuccess), HttpStatus.OK);
+            }
+            return new ResponseEntity<>(new Status(isSuccess), HttpStatus.NOT_FOUND);
         } catch (Exception ex) {
             return new ResponseEntity<>(new Status(false), HttpStatus.INTERNAL_SERVER_ERROR);
         }
