@@ -6,7 +6,7 @@ import lombok.Getter;
 public enum TaskStatusEnum{
     PENDING("PENDING"),
     IN_PROGRESS("IN_PROGRESS"),
-    COMPLETED("CREATED");
+    COMPLETED("COMPLETED");
 
     private final String name;
 
